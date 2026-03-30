@@ -1,0 +1,30 @@
+/* パターンA — あおば会計寄り：シンプル・プロフェッショナル・落ち着いた青系 */
+:root {
+  --color-text: #2c2c2c;
+  --color-text-sub: #555;
+  --color-bg: #fafafa;
+  --color-bg-alt: #f0f0f0;
+  --color-accent: #2c5282;
+  --color-border: #e0e0e0;
+  --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-serif: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --space: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+  --max-width: 880px;
+  --space-edge: 1.25rem;
+  --radius: 6px;
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --header-overlay-home: rgba(255, 255, 255, 0.5);
+  --hero-gradient-start: #e8eef4;
+  /* CTA：ヒーロー青系とアクセントを統一 */
+  --cta-border: #2c5282;
+  --cta-text: #2c5282;
+  --cta-text-hover: #1e3d66;
+  --cta-hover-bg: rgba(44, 82, 130, 0.12);
+  --hero-overlay-bg: rgba(44, 62, 98, 0.48);
+  --hero-title-on-image: #fff;
+  --hero-title-shadow: 0 2px 28px rgba(0, 0, 0, 0.5);
+  --hero-bright-title-color: #1a2d4a;
+  --hero-bright-overlay-end: rgba(44, 62, 98, 0.32);
+}

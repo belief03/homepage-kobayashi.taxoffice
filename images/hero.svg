@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-labelledby="t">
+  <title id="t">ヒーロー用写真プレースホルダー</title>
+  <rect width="960" height="480" fill="#e8eef4"/>
+  <rect x="40" y="40" width="880" height="400" fill="#d4dde8" rx="4"/>
+  <text x="480" y="248" text-anchor="middle" fill="#6b7a8c" font-family="sans-serif" font-size="22">写真差し替え（事務所外観・代表写真など）</text>
+</svg>

@@ -1,0 +1,175 @@
+/* パターンC — 田中吉彦税理士事務所 公式サイト（t2ao.com）の配色・トーンを参考
+ * 本文 #3e3a39 / アクセント黄 #ffe400 / グレー #787574 / 区切り #e0e0e0（同サイト basic.css 準拠） */
+:root {
+  --color-text: #3e3a39;
+  --color-text-sub: #5a5554;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f5f4;
+  --color-accent: #787574;
+  --color-border: #e0e0e0;
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  --space: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+  --max-width: 880px;
+  --space-edge: 1.25rem;
+  --radius: 6px;
+  --hero-gradient-start: #ebeae8;
+  /* CTA：炭色基調（黄色アクセントは使わない） */
+  --cta-border: #3e3a39;
+  --cta-text: #3e3a39;
+  --cta-text-hover: #3e3a39;
+  --cta-hover-bg: rgba(120, 117, 116, 0.14);
+  --hero-padding-y: 3.5rem;
+  --hero-padding-y-bottom: 4.5rem;
+  --hero-title-max: 2.4rem;
+  --hero-title-tracking: 0.06em;
+  --title-accent-width: 2.5rem;
+  --title-accent-height: 3px;
+  --title-accent-radius: 0;
+  --header-bg: rgba(255, 255, 255, 0.96);
+  --header-overlay-home: rgba(255, 255, 255, 0.52);
+  --profile-photo-radius: 50%;
+  --profile-photo-shadow: 0 4px 20px rgba(62, 58, 57, 0.07);
+  --contact-frame-bg: #fff;
+  --contact-frame-shadow: 0 2px 16px rgba(62, 58, 57, 0.06);
+  --input-bg: #fff;
+  --hero-overlay-bg: rgba(62, 58, 57, 0.48);
+  --hero-title-on-image: #fffdfa;
+  --hero-title-shadow: 0 2px 22px rgba(0, 0, 0, 0.42);
+  --hero-bright-title-color: #2e2c2b;
+  --hero-bright-overlay-end: rgba(62, 58, 57, 0.3);
+  /* フッター（同サイト .footerBoxWrap #787574 相当） */
+  --footer-bg: #787574;
+  --footer-border: rgba(255, 255, 255, 0.12);
+  --footer-text: rgba(255, 255, 255, 0.92);
+  --footer-link-color: rgba(255, 255, 255, 0.82);
+  --footer-link-hover: #ffffff;
+  --footer-muted: rgba(255, 255, 255, 0.62);
+}
+
+/* t2ao風：ノートパッドのようなドット背景 */
+body {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+}
+
+.main {
+  background: transparent;
+}
+.main .section {
+  position: relative;
+  padding: calc(var(--space-xl) + 0.35rem) calc(var(--space-edge) + 0.2rem);
+  background-image:
+    radial-gradient(circle, rgba(120, 117, 116, 0.18) 1.05px, transparent 1.15px);
+  background-size: 16px 16px;
+  background-position: 2px 2px;
+  background-origin: padding-box;
+  background-clip: padding-box;
+}
+.main .section:not(:last-child) {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+.main > .section + .section {
+  margin-top: clamp(1.1rem, 2.8vw, 1.9rem);
+}
+.main .section[id] {
+  scroll-margin-top: 1rem;
+}
+.section:not(:last-child) {
+  border-bottom: 0 !important;
+}
+.main .section,
+.main .section:not(:last-child) {
+  border-bottom: 0 !important;
+}
+
+.section__title {
+  letter-spacing: 0.04em;
+}
+.section__title::after,
+.about__heading::after {
+  background: var(--color-accent);
+}
+
+.about__services {
+  list-style: none;
+  padding-left: 0;
+}
+.about__services li {
+  position: relative;
+  padding-left: 1em;
+}
+.about__services li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 0.38em;
+  height: 0.38em;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.page-single__main {
+  /* 下層ページ：ヘッダー直下の詰まりを防ぐ（左右は main 側で確保） */
+  padding: var(--space-lg) 0 0 0 !important;
+  background-image:
+    radial-gradient(circle, rgba(120, 117, 116, 0.2) 1.1px, transparent 1.2px);
+  background-size: 16px 16px;
+  background-position: 2px 0 !important;
+  background-origin: padding-box;
+  background-clip: padding-box;
+}
+.page-single__main > * + * {
+  margin-top: 0.35rem;
+}
+@media (max-width: 640px) {
+  .page-single__main {
+    padding-top: calc(var(--space-lg) - 0.5rem) !important;
+  }
+}
+.page-single__title {
+  margin-bottom: calc(var(--space-lg) + 0.35rem);
+}
+
+.about__body p,
+.section__lead,
+.services__intro {
+  margin-bottom: 1.15em;
+}
+.about__services li {
+  margin-bottom: 0.5em;
+}
+.about__rule {
+  border-top: 0;
+  margin: calc(var(--space-lg) + 0.4rem) 0;
+}
+.services__item {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 0;
+}
+.page-single__title::after {
+  background: var(--color-accent);
+}
+
+.services__item {
+  padding-left: 0.35rem;
+  border-bottom: 0;
+}
+.office__row {
+  border-bottom: 0;
+  padding-bottom: 1rem;
+}
+.office__row + .office__row {
+  margin-top: 0.35rem;
+}
+.contact__frame {
+  border: 1px dotted #d7d2cd;
+  border-top: 2px solid var(--color-accent);
+}
+
+/*（重複上書きを削除して統一） */

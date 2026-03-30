@@ -1,0 +1,42 @@
+/* パターンB — 暖色・クリームトーン（やわらかさ・人となり） */
+:root {
+  --color-text: #3d3835;
+  --color-text-sub: #5c5652;
+  --color-bg: #fdfbf8;
+  --color-bg-alt: #f5efe8;
+  --color-accent: #8b6914;
+  --color-border: #e5ddd4;
+  --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-serif: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --space: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+  --max-width: 880px;
+  --space-edge: 1.25rem;
+  --radius: 8px;
+  --hero-gradient-start: #f0e8dc;
+  /* CTA：ヒーロー暖色トーンとアクセントを統一 */
+  --cta-border: #8b6914;
+  --cta-text: #8b6914;
+  --cta-text-hover: #6d530f;
+  --cta-hover-bg: rgba(139, 105, 20, 0.12);
+  --hero-padding-y: 3.5rem;
+  --hero-padding-y-bottom: 4.5rem;
+  --hero-title-max: 2.4rem;
+  --hero-title-tracking: 0.02em;
+  --title-accent-width: 3rem;
+  --title-accent-height: 2px;
+  --title-accent-radius: 0;
+  --header-bg: rgba(253, 251, 248, 0.97);
+  --header-overlay-home: rgba(253, 251, 248, 0.52);
+  --profile-photo-radius: 50%;
+  --profile-photo-shadow: 0 4px 20px rgba(61, 56, 53, 0.08);
+  --contact-frame-bg: #fff;
+  --contact-frame-shadow: 0 2px 16px rgba(61, 56, 53, 0.06);
+  --input-bg: #fffcf9;
+  --hero-overlay-bg: rgba(61, 56, 53, 0.5);
+  --hero-title-on-image: #fffdfa;
+  --hero-title-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  --hero-bright-title-color: #2f2a28;
+  --hero-bright-overlay-end: rgba(61, 56, 53, 0.28);
+}
