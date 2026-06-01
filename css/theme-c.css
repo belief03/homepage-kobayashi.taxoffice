@@ -13,7 +13,10 @@
   --space-lg: 3rem;
   --space-xl: 4rem;
   --max-width: 880px;
+  --site-inner-max-width: var(--max-width);
+  --footer-max-width: var(--max-width);
   --space-edge: 1.25rem;
+  --bar-padding-y: 0.85rem;
   --radius: 6px;
   --hero-gradient-start: #ebeae8;
   /* CTA：炭色基調（黄色アクセントは使わない） */
@@ -28,8 +31,13 @@
   --title-accent-width: 2.5rem;
   --title-accent-height: 3px;
   --title-accent-radius: 0;
-  --header-bg: rgba(255, 255, 255, 0.96);
-  --header-overlay-home: rgba(255, 255, 255, 0.52);
+  --header-bg: #787574;
+  --header-border: rgba(255, 255, 255, 0.12);
+  --header-logo-color: #ffffff;
+  --header-link-color: rgba(255, 255, 255, 0.82);
+  --header-link-hover: #ffffff;
+  --header-link-current: #ffffff;
+  --header-overlay-home: rgba(120, 117, 116, 0.9);
   --profile-photo-radius: 50%;
   --profile-photo-shadow: 0 4px 20px rgba(62, 58, 57, 0.07);
   --contact-frame-bg: #fff;
@@ -47,6 +55,21 @@
   --footer-link-color: rgba(255, 255, 255, 0.82);
   --footer-link-hover: #ffffff;
   --footer-muted: rgba(255, 255, 255, 0.62);
+}
+
+.header .site-mode {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+}
+.header .site-mode__btn {
+  color: rgba(255, 255, 255, 0.78);
+}
+.header .site-mode__btn:hover {
+  color: #ffffff;
+}
+.header .site-mode__btn[aria-pressed="true"] {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.94);
 }
 
 /* t2ao風：ノートパッドのようなドット背景 */

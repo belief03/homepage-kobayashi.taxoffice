@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css">
-  <link id="site-theme-link" rel="stylesheet" href="css/theme-d.css?v=20260528-0102">
-  <script src="js/site-mode.js?v=20260528-0102"></script>
+  <link rel="stylesheet" href="css/base.css?v=20260601d">
+  <link id="site-theme-link" rel="stylesheet" href="css/theme-d.css?v=20260601d">
+  <script src="js/site-mode.js?v=20260601d"></script>
 </head>
 <body class="page-home page-friendly">
   <header class="header">
@@ -40,6 +40,10 @@
         <img class="hero-friendly__photo hero-friendly__photo--2" src="images/hero-3-office.png" alt="" width="1920" height="1080" decoding="async">
       </figure>
     </div>
+    <a class="hero-friendly__scroll" href="#features" aria-label="本文へスクロール">
+      <span class="hero-friendly__scroll-label">scroll</span>
+      <span class="hero-friendly__scroll-line" aria-hidden="true"></span>
+    </a>
   </section>
 
   <main class="main">
@@ -101,16 +105,20 @@
       <p class="section__actions"><a class="btn btn--primary" href="news.html">NEWS一覧</a></p>
     </section>
 
-    <section class="section contact-banner" id="contact">
-      <h2 class="section__title">まずはお気軽に<br>ご相談ください</h2>
-      <p class="contact-banner__note">メールフォームよりお問い合わせいただけます。内容を確認のうえ、担当よりご連絡いたします。</p>
-      <p class="section__actions">
-        <a class="btn btn--solid" href="contact.html">お問い合わせフォーム</a>
-      </p>
+    <section class="section contact-banner" id="contact" aria-labelledby="contact-title">
+      <div class="contact-banner__inner">
+        <h2 id="contact-title" class="section__title">まずはお気軽に<br>ご相談ください</h2>
+        <p class="contact-banner__lead">メールフォームよりお問い合わせいただけます。</p>
+        <a class="contact-banner__cta" href="contact.html">
+          <span>お問い合わせフォームへ</span>
+          <span class="contact-banner__cta-icon" aria-hidden="true">→</span>
+        </a>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
+    <div class="footer__inner">
     <nav class="footer__nav" aria-label="フッターナビ">
       <ul class="footer__nav-list">
         <li><a class="footer__nav-link" href="about.html">私たちについて</a></li>
@@ -121,7 +129,8 @@
       </ul>
     </nav>
     <p class="footer__copyright">© 小林義和税理士事務所</p>
+    </div>
   </footer>
-  <script src="js/scroll-reveal.js?v=20260528-0102" defer></script>
+  <script src="js/scroll-reveal.js?v=20260601f" defer></script>
 </body>
 </html>

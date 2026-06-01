@@ -2,8 +2,8 @@
   const STORAGE_KEY = "kobayashi-site-mode";
   const MODES = { pro: "pro", friendly: "friendly" };
   const THEME = {
-    pro: "css/theme-c.css?v=20260527",
-    friendly: "css/theme-d.css?v=20260528-0102"
+    pro: "css/theme-c.css?v=20260601d",
+    friendly: "css/theme-d.css?v=20260601d"
   };
   const HOME = {
     pro: "index.html",

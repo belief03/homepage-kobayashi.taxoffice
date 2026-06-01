@@ -45,10 +45,112 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const friendlyExtras = document.body.classList.contains("page-friendly")
-    ? [...document.querySelectorAll(".feature-card")]
-    : [];
+  const isFriendly = document.body.classList.contains("page-friendly");
 
+  function applyRevealClasses(element, direction) {
+    element.classList.add("reveal");
+    if (!isFriendly) {
+      element.classList.add(direction === "right" ? "reveal--right" : "reveal--left");
+      return;
+    }
+    if (direction === "left") {
+      element.classList.add("reveal--from-left");
+    } else if (direction === "right") {
+      element.classList.add("reveal--from-right");
+    } else if (direction === "down") {
+      element.classList.add("reveal--from-down");
+    } else {
+      element.classList.add("reveal--from-outside");
+    }
+  }
+
+  function revealLater(element, delayMs) {
+    window.setTimeout(() => {
+      element.classList.add("is-visible");
+    }, delayMs);
+  }
+
+  function observeOnce(element, onVisible) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          onVisible(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -6% 0px"
+      }
+    );
+    observer.observe(element);
+  }
+
+  if (isFriendlyHome) {
+    const INTRO_GAP = 420;
+    const BEFORE_CARDS = 500;
+    const CARD_GAP = 190;
+
+    const features = document.querySelector("#features");
+    if (features) {
+      const heading = features.querySelector(".section__title");
+      const lead = features.querySelector(".section__lead");
+      const cards = [...features.querySelectorAll(".feature-card")];
+
+      const sequence = [];
+      let delay = 0;
+
+      if (heading) {
+        sequence.push({ element: heading, direction: "outside", delay });
+        delay += INTRO_GAP;
+      }
+      if (lead) {
+        sequence.push({ element: lead, direction: "outside", delay });
+        delay += BEFORE_CARDS;
+      }
+      cards.forEach((card, index) => {
+        sequence.push({
+          element: card,
+          direction: index % 2 === 0 ? "left" : "right",
+          delay
+        });
+        delay += CARD_GAP;
+      });
+
+      sequence.forEach((item) => {
+        applyRevealClasses(item.element, item.direction);
+      });
+
+      observeOnce(features, () => {
+        sequence.forEach((item) => {
+          revealLater(item.element, item.delay);
+        });
+      });
+    }
+
+    const pricing = document.querySelector("#pricing");
+    if (pricing) {
+      applyRevealClasses(pricing, "outside");
+      observeOnce(pricing, () => revealLater(pricing, 0));
+    }
+
+    const news = document.querySelector("#news");
+    if (news) {
+      applyRevealClasses(news, "outside");
+      observeOnce(news, () => revealLater(news, 0));
+    }
+
+    const contact = document.querySelector(".contact-banner__inner");
+    if (contact) {
+      applyRevealClasses(contact, "down");
+      observeOnce(contact, () => revealLater(contact, 0));
+    }
+
+    return;
+  }
+
+  const friendlyExtras = isFriendly ? [...document.querySelectorAll(".feature-card")] : [];
   const targets = [
     ...document.querySelectorAll(".main .section"),
     ...document.querySelectorAll(".page-single__main > *"),
@@ -57,23 +159,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const uniqueTargets = Array.from(new Set(targets));
   uniqueTargets.forEach((element, index) => {
-    element.classList.add("reveal");
-    element.classList.add(index % 2 === 0 ? "reveal--left" : "reveal--right");
+    const direction =
+      isFriendly && element.classList.contains("feature-card")
+        ? index % 2 === 0
+          ? "left"
+          : "right"
+        : index % 2 === 0
+          ? "left"
+          : "right";
+    applyRevealClasses(element, direction);
+    element.dataset.revealOrder = String(index);
   });
 
-  const isFriendly = document.body.classList.contains("page-friendly");
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+        if (!entry.isIntersecting || entry.target.classList.contains("is-visible")) {
+          return;
         }
+        const order = Number(entry.target.dataset.revealOrder) || 0;
+        revealLater(entry.target, order * 180);
+        observer.unobserve(entry.target);
       });
     },
     {
-      threshold: isFriendly ? 0.12 : 0.18,
-      rootMargin: isFriendly ? "0px 0px -5% 0px" : "0px 0px -8% 0px"
+      threshold: isFriendly ? 0.08 : 0.18,
+      rootMargin: "0px 0px -8% 0px"
     }
   );
 
