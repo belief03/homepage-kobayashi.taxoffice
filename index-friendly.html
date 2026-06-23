@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css?v=20260601d">
-  <link id="site-theme-link" rel="stylesheet" href="css/theme-d.css?v=20260601d">
-  <script src="js/site-mode.js?v=20260601d"></script>
+  <link rel="stylesheet" href="css/base.css?v=20260623a">
+  <link id="site-theme-link" rel="stylesheet" href="css/theme-d.css?v=20260623a">
+  <script src="js/site-mode.js?v=20260623a"></script>
 </head>
 <body class="page-home page-friendly">
   <header class="header">
@@ -18,9 +18,8 @@
       <nav class="nav" aria-label="メインメニュー">
         <ul class="nav__list">
           <li><a class="nav__link" href="index-friendly.html" aria-current="page">ホーム</a></li>
-          <li><a class="nav__link" href="about.html">私たちについて</a></li>
+          <li><a class="nav__link" href="profile.html">プロフィール</a></li>
           <li><a class="nav__link" href="services.html">サービス</a></li>
-          <li><a class="nav__link" href="works.html">実績</a></li>
           <li><a class="nav__link" href="pricing.html">料金</a></li>
           <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
         </ul>
@@ -28,17 +27,22 @@
     </div>
   </header>
 
-  <section class="hero-friendly" aria-labelledby="hero-title">
-    <div class="hero-friendly__inner">
+  <section class="hero-friendly hero-friendly--with-photo" aria-labelledby="hero-title">
+    <div class="hero-friendly__slides" aria-hidden="true">
+      <figure class="hero-friendly__bg hero-friendly__bg--1">
+        <img src="images/hero-office.jpg" alt="" width="640" height="427" decoding="async">
+      </figure>
+      <figure class="hero-friendly__bg hero-friendly__bg--2">
+        <img src="images/hero-3-office.png" alt="" width="1920" height="1080" decoding="async">
+      </figure>
+    </div>
+    <div class="hero-friendly__overlay" aria-hidden="true"></div>
+    <div class="hero-friendly__inner hero-friendly__inner--center">
       <div class="hero-friendly__copy">
         <p class="hero-friendly__eyebrow">KOBAYASHI TAX OFFICE</p>
         <h1 id="hero-title" class="hero-friendly__title">はじめての税務相談も、<br>お気軽にどうぞ。</h1>
         <p class="hero-friendly__lead">個人事業主・法人の記帳・決算、独立起業のご支援、相続・贈与のご相談まで。専門用語はできるだけ使わず、初めてのご相談から丁寧にお話をうかがいます。</p>
       </div>
-      <figure class="hero-friendly__visual hero-friendly__visual--photo">
-        <img class="hero-friendly__photo hero-friendly__photo--1" src="images/hero-office.jpg" alt="事務所内での相談イメージ" width="640" height="427" decoding="async">
-        <img class="hero-friendly__photo hero-friendly__photo--2" src="images/hero-3-office.png" alt="" width="1920" height="1080" decoding="async">
-      </figure>
     </div>
     <a class="hero-friendly__scroll" href="#features" aria-label="本文へスクロール">
       <span class="hero-friendly__scroll-label">scroll</span>
@@ -48,23 +52,17 @@
 
   <main class="main">
     <section class="section section-friendly-features" id="features" aria-labelledby="features-title">
-      <h2 id="features-title" class="section__title">小林義和税理士事務所って<br>どんなところ？</h2>
+      <h2 id="features-title" class="section__title">About<br>　小林義和税理士事務所</h2>
       <p class="section__lead">税務のことで少し不安がある方も、安心してご相談いただけるよう、次の3つを大切にしています。</p>
       <ul class="feature-list feature-list--plain">
         <li class="feature-card">
-          <figure class="feature-card__visual">
-            <img src="images/illust-local.svg" alt="" width="240" height="200" loading="lazy" decoding="async">
-          </figure>
           <div class="feature-card__body">
             <h3 class="feature-card__title">01　地域に根ざした<br>税理士事務所です</h3>
             <p class="feature-card__text">地元の法人・個人事業の皆さまを、税務の面から長く支えています。身近な相談窓口として、お悩みに寄り添います。</p>
-            <a class="feature-card__link" href="about.html">私たちについて見る</a>
+            <a class="feature-card__link" href="profile.html">プロフィールを見る</a>
           </div>
         </li>
-        <li class="feature-card feature-card--reverse">
-          <figure class="feature-card__visual">
-            <img src="images/illust-easy.svg" alt="" width="240" height="200" loading="lazy" decoding="async">
-          </figure>
+        <li class="feature-card">
           <div class="feature-card__body">
             <h3 class="feature-card__title">02　わかりやすい説明を<br>心がけています</h3>
             <p class="feature-card__text">専門用語に頼りすぎず、状況に合わせて丁寧にお伝えします。決算・申告の流れから、相続のご相談まで、一緒に整理していきます。</p>
@@ -72,9 +70,6 @@
           </div>
         </li>
         <li class="feature-card">
-          <figure class="feature-card__visual">
-            <img src="images/illust-welcome.svg" alt="" width="240" height="200" loading="lazy" decoding="async">
-          </figure>
           <div class="feature-card__body">
             <h3 class="feature-card__title">03　初めてのご相談も<br>歓迎しています</h3>
             <p class="feature-card__text">「まだ具体的に決まっていない」「何から聞けばいいかわからない」という段階でも大丈夫です。まずはお気軽にお声がけください。</p>
@@ -94,12 +89,12 @@
       <h2 class="section__title">NEWS</h2>
       <ul class="news__list">
         <li class="news__item">
-          <p class="news__meta"><time datetime="2026-05-20">2026.05.20</time><span class="news__tag">お知らせ</span></p>
-          <p class="news__title">初回相談のご予約枠を更新しました。</p>
+          <p class="news__meta"><time datetime="2026-08-01">2026.08.01</time><span class="news__tag">お知らせ</span></p>
+          <p class="news__title">決算・申告時期のご相談受付についてご案内しています。</p>
         </li>
         <li class="news__item">
-          <p class="news__meta"><time datetime="2026-05-02">2026.05.02</time><span class="news__tag">税務情報</span></p>
-          <p class="news__title">決算・申告時期のご相談受付についてご案内しています。</p>
+          <p class="news__meta"><time datetime="2026-07-30">2026.07.30</time><span class="news__tag">お知らせ</span></p>
+          <p class="news__title">ホームページを開設しました。</p>
         </li>
       </ul>
       <p class="section__actions"><a class="btn btn--primary" href="news.html">NEWS一覧</a></p>
@@ -121,9 +116,8 @@
     <div class="footer__inner">
     <nav class="footer__nav" aria-label="フッターナビ">
       <ul class="footer__nav-list">
-        <li><a class="footer__nav-link" href="about.html">私たちについて</a></li>
+        <li><a class="footer__nav-link" href="profile.html">プロフィール</a></li>
         <li><a class="footer__nav-link" href="services.html">サービス</a></li>
-        <li><a class="footer__nav-link" href="works.html">実績</a></li>
         <li><a class="footer__nav-link" href="pricing.html">料金</a></li>
         <li><a class="footer__nav-link" href="contact.html">お問い合わせ</a></li>
       </ul>
@@ -131,6 +125,6 @@
     <p class="footer__copyright">© 小林義和税理士事務所</p>
     </div>
   </footer>
-  <script src="js/scroll-reveal.js?v=20260601f" defer></script>
+  <script src="js/scroll-reveal.js?v=20260623a" defer></script>
 </body>
 </html>

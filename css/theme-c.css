@@ -26,7 +26,7 @@
   --cta-hover-bg: rgba(120, 117, 116, 0.14);
   --hero-padding-y: 3.5rem;
   --hero-padding-y-bottom: 4.5rem;
-  --hero-title-max: 2.4rem;
+  --hero-title-max: 3.35rem;
   --hero-title-tracking: 0.06em;
   --title-accent-width: 2.5rem;
   --title-accent-height: 3px;
@@ -55,6 +55,10 @@
   --footer-link-color: rgba(255, 255, 255, 0.82);
   --footer-link-hover: #ffffff;
   --footer-muted: rgba(255, 255, 255, 0.62);
+  --page-bg-base: #fafaf9;
+  --page-dot-color: rgba(120, 117, 116, 0.16);
+  --page-dot-size: 18px;
+  --section-divider: rgba(120, 117, 116, 0.12);
 }
 
 .header .site-mode {
@@ -74,8 +78,10 @@
 
 /* t2ao風：ノートパッドのようなドット背景 */
 body {
-  background:
-    linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+  background-color: var(--page-bg-base);
+  background-image: radial-gradient(var(--page-dot-color) 1px, transparent 1px);
+  background-size: var(--page-dot-size) var(--page-dot-size);
+  background-position: 0 0;
 }
 
 .main {
@@ -83,20 +89,18 @@ body {
 }
 .main .section {
   position: relative;
-  padding: calc(var(--space-xl) + 0.35rem) calc(var(--space-edge) + 0.2rem);
-  background-image:
-    radial-gradient(circle, rgba(120, 117, 116, 0.18) 1.05px, transparent 1.15px);
-  background-size: 16px 16px;
-  background-position: 2px 2px;
-  background-origin: padding-box;
-  background-clip: padding-box;
+  padding: calc(var(--space-xl) + 0.35rem) calc(var(--space-edge) + 0.35rem);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 .main .section:not(:last-child) {
   margin-bottom: 0;
-  border-bottom: none;
 }
 .main > .section + .section {
-  margin-top: clamp(1.1rem, 2.8vw, 1.9rem);
+  margin-top: 0;
+  padding-top: calc(var(--space-xl) + 0.35rem);
+  border-top: 1px solid var(--section-divider);
 }
 .main .section[id] {
   scroll-margin-top: 1rem;
@@ -139,15 +143,10 @@ body {
 .page-single__main {
   /* 下層ページ：ヘッダー直下の詰まりを防ぐ（左右は main 側で確保） */
   padding: var(--space-lg) 0 0 0 !important;
-  background-image:
-    radial-gradient(circle, rgba(120, 117, 116, 0.2) 1.1px, transparent 1.2px);
-  background-size: 16px 16px;
-  background-position: 2px 0 !important;
-  background-origin: padding-box;
-  background-clip: padding-box;
+  background: transparent;
 }
 .page-single__main > * + * {
-  margin-top: 0.35rem;
+  margin-top: 0.5rem;
 }
 @media (max-width: 640px) {
   .page-single__main {
@@ -167,32 +166,44 @@ body {
   margin-bottom: 0.5em;
 }
 .about__rule {
-  border-top: 0;
+  border-top: 1px solid rgba(120, 117, 116, 0.2);
   margin: calc(var(--space-lg) + 0.4rem) 0;
 }
 .services__item {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 0;
+  border-bottom: 1px solid rgba(120, 117, 116, 0.16);
+  padding-left: 0.35rem;
 }
 .page-single__title::after {
   background: var(--color-accent);
 }
-
-.services__item {
-  padding-left: 0.35rem;
-  border-bottom: 0;
+.services__card {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+}
+.services__card-list > li {
+  border-bottom-color: rgba(120, 117, 116, 0.14);
+}
+.services__card-list > li::before {
+  background: rgba(120, 117, 116, 0.1);
 }
 .office__row {
-  border-bottom: 0;
+  border-bottom: 1px dotted rgba(120, 117, 116, 0.32);
   padding-bottom: 1rem;
 }
 .office__row + .office__row {
   margin-top: 0.35rem;
 }
 .contact__frame {
-  border: 1px dotted #d7d2cd;
-  border-top: 2px solid var(--color-accent);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
 }
 
 /*（重複上書きを削除して統一） */

@@ -1,5 +1,11 @@
 /* 共通レイアウト（色・トーンは theme-a / theme-b / theme-c で指定） */
 html { scroll-behavior: smooth; }
+html:not(.site-ready) .header__inner {
+  visibility: hidden;
+}
+html.site-ready .header__inner {
+  visibility: visible;
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -120,7 +126,7 @@ body {
   padding-bottom: var(--bar-padding-y, 0.85rem);
 }
 .page-home .hero--with-photo {
-  --hero-with-photo-min-height: clamp(360px, 68vh, 860px);
+  --hero-with-photo-min-height: clamp(300px, 52vh, 560px);
 }
 
 /* ========== ヒーロー ========== */
@@ -161,6 +167,12 @@ body {
   box-sizing: border-box;
   min-height: var(--hero-with-photo-min-height, clamp(280px, 52vh, 640px));
 }
+.hero--with-photo .hero__slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
 .hero--with-photo .hero__photo {
   position: absolute;
   inset: 0;
@@ -177,8 +189,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  transform: scale(1);
+  object-position: center 42%;
+  transform: scale(1.12);
   animation: hero-photo-zoom 18s ease-out infinite;
   transform-origin: center;
 }
@@ -200,9 +212,9 @@ body {
   object-position: center 46%;
 }
 @keyframes hero-photo-zoom {
-  0% { transform: scale(1); }
-  33.333% { transform: scale(1.1); }
-  100% { transform: scale(1.1); }
+  0% { transform: scale(1.12); }
+  33.333% { transform: scale(1.22); }
+  100% { transform: scale(1.22); }
 }
 @keyframes hero-slide-fade {
   0% { opacity: 0; }
@@ -239,7 +251,10 @@ body {
 }
 .hero--with-photo .hero__title {
   margin: 0;
-  max-width: 22em;
+  max-width: none;
+  font-size: clamp(2rem, 5.8vw, 3.35rem);
+  line-height: 1.25;
+  letter-spacing: 0.08em;
   color: var(--hero-title-on-image, #fff);
   text-shadow: var(--hero-title-shadow, 0 2px 28px rgba(0, 0, 0, 0.45));
 }
@@ -403,6 +418,13 @@ body {
 
 /* サービス一覧（ページ用） */
 .services__intro { margin: 0 0 var(--space-lg); color: var(--color-text-sub); line-height: 1.9; }
+.page-single__title:has(+ .services__intro) {
+  margin-bottom: 0.35rem;
+}
+.page-single__title + .services__intro {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+}
 .services__list { list-style: none; margin: 0; padding: 0; }
 .services__item {
   padding: var(--space) 0;
@@ -412,6 +434,132 @@ body {
   color: var(--color-text);
 }
 .services__item:last-child { border-bottom: none; }
+
+.services__card {
+  margin: 0 0 var(--space-lg);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+.services__card-audiences {
+  display: grid;
+  gap: 1.5rem;
+}
+.services__card-group + .services__card-group {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+@media (min-width: 720px) {
+  .services__card-audiences {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+  }
+  .services__card-group:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .services__card-group:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    padding-left: 0;
+    border-left: none;
+  }
+  .services__card-group--individual {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+}
+.services__card-title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+.services__card-title::after {
+  content: "";
+  display: block;
+  width: 1.75em;
+  height: 2px;
+  margin-top: 0.35em;
+  background: var(--color-accent);
+  border-radius: 1px;
+}
+.services__card-subtitle {
+  margin: 0 0 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-sub);
+  letter-spacing: 0.03em;
+}
+.services__card-cols {
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 560px) {
+  .services__card-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+.services__card-col + .services__card-col {
+  padding-top: 0;
+  border-top: none;
+}
+@media (min-width: 560px) {
+  .services__card-col + .services__card-col {
+    padding-left: 0;
+    border-left: none;
+  }
+}
+.services__card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: services-item;
+}
+.services__card-list > li {
+  counter-increment: services-item;
+  position: relative;
+  padding: 0.62rem 0 0.62rem 2.15rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+.services__card-list > li:last-child { border-bottom: none; }
+.services__card-list > li::before {
+  content: counter(services-item);
+  position: absolute;
+  top: 0.62rem;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-accent);
+  background: var(--color-bg-alt, rgba(0, 0, 0, 0.04));
+  border-radius: 50%;
+}
+.page-single .services__card + .section__actions {
+  margin-top: 0;
+}
 
 /* 料金表 */
 .pricing-table-wrap {
@@ -739,4 +887,337 @@ body {
   .contact__row { grid-template-columns: 1fr; }
   .contact__input,
   .contact__textarea { font-size: 16px; }
+}
+
+/* ========== A3 PDF向け（提案資料レイアウト） ========== */
+@page {
+  size: A3;
+  margin: 14mm;
+}
+@media print {
+  html,
+  body {
+    background: #f2f4f7 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .site-mode,
+  .hero-friendly__scroll {
+    display: none !important;
+  }
+
+  .header {
+    position: static !important;
+    top: auto;
+    border-bottom: none;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    margin: 0 0 8mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .header__inner {
+    max-width: none !important;
+    padding: 6mm 8mm;
+    border: 1px solid #d8dee7;
+    background: #ffffff;
+    box-shadow: 0 4mm 10mm rgba(40, 52, 70, 0.06);
+  }
+
+  .main,
+  .page-single {
+    max-width: none !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero,
+  .hero--with-photo,
+  .hero-friendly {
+    width: auto !important;
+    max-width: none !important;
+    min-height: auto !important;
+    margin: 0 0 8mm !important;
+    border: 1px solid #d8dee7;
+    box-shadow: 0 3mm 8mm rgba(40, 52, 70, 0.05);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .hero--with-photo .hero__inner--split {
+    min-height: 55mm;
+  }
+  .page-friendly .hero-friendly {
+    padding: 6mm 8mm !important;
+  }
+  .hero-friendly__inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 6mm !important;
+  }
+  .hero-friendly__copy {
+    flex: 1 1 52%;
+    min-width: 0;
+  }
+  .hero-friendly__visual--photo {
+    flex: 0 0 auto;
+    width: min(42%, 95mm) !important;
+    margin: 0 !important;
+  }
+  .hero-friendly__title {
+    font-size: 1.45rem !important;
+    line-height: 1.35 !important;
+  }
+  .hero-friendly__lead {
+    font-size: 0.92rem !important;
+    line-height: 1.75 !important;
+  }
+
+  /* 小さめのセクションは1枚のカードとして維持 */
+  .main .section:not(.section-friendly-features):not(.contact-banner),
+  .page-single__main > :not(.about) {
+    margin: 0 0 6mm !important;
+    padding: 7mm !important;
+    border: 1px solid #e3e8ef !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .page-single__main {
+    padding: 0 !important;
+  }
+  .section:last-child,
+  .page-single__main > *:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* 長い「私たちについて」は見出し単位で区切る */
+  .page-single__main > .about {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  .about__heading {
+    margin: 0 0 6mm !important;
+    padding: 5mm 7mm 0 !important;
+    border: 1px solid #e3e8ef !important;
+    border-bottom: none !important;
+    background: #ffffff !important;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .about__heading + .about__body,
+  .about__heading + .office__dl,
+  .about__heading + .map-embed {
+    margin: 0 0 6mm !important;
+    padding: 0 7mm 7mm !important;
+    border: 1px solid #e3e8ef !important;
+    border-top: none !important;
+    background: #ffffff !important;
+    page-break-before: avoid;
+    break-before: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .about__heading + .profile__list {
+    margin: 0 0 6mm !important;
+    padding: 0 7mm 5mm !important;
+    border: 1px solid #e3e8ef !important;
+    border-top: none !important;
+    background: #ffffff !important;
+    page-break-before: avoid;
+    break-before: avoid;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  .about .profile__list {
+    padding-bottom: 4mm !important;
+  }
+  .about .profile__item {
+    margin: 0 0 4mm !important;
+    padding: 5mm !important;
+    border: 1px solid #eef1f6 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .about .profile__item:last-child {
+    margin-bottom: 0 !important;
+  }
+  .about .map-embed {
+    max-height: 95mm;
+  }
+  .about .access__map-link,
+  .about .section__actions {
+    margin: 0 0 6mm !important;
+    padding: 4mm 7mm !important;
+    border: 1px solid #e3e8ef !important;
+    background: #ffffff !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* 相談しやすい版TOP：特徴ブロックはカードごとに改ページ調整 */
+  .section-friendly-features {
+    margin: 0 0 6mm !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  .section-friendly-features > .section__title,
+  .section-friendly-features > .section__lead {
+    margin: 0 0 6mm !important;
+    padding: 7mm !important;
+    border: 1px solid #e3e8ef !important;
+    background: #ffffff !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .section-friendly-features > .section__title {
+    page-break-after: avoid;
+    break-after: avoid;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+    padding-bottom: 4mm !important;
+  }
+  .section-friendly-features > .section__lead {
+    page-break-before: avoid;
+    break-before: avoid;
+    margin-top: 0 !important;
+    border-top: none !important;
+    padding-top: 0 !important;
+  }
+  .feature-list--plain {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none;
+  }
+  .feature-list--plain .feature-card {
+    margin: 0 0 6mm !important;
+    padding: 6mm !important;
+    border: 1px solid #e3e8ef !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .feature-list--plain .feature-card:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .section__title,
+  .page-single__title,
+  .works__heading,
+  .about__heading {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .section__title + .section__lead,
+  .section__title + .about__body,
+  .page-single__title + .services__intro,
+  .page-single__title + .services__card,
+  .page-single__title + .works__list,
+  .page-single__title + .profile__list,
+  .page-single__title + .pricing-table-wrap {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  .profile__item,
+  .works__item,
+  .news__item,
+  .services__item,
+  .services__card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 0 0 6mm !important;
+    padding: 4mm 5mm !important;
+    border: 1px solid #e3e8ef !important;
+    box-shadow: none !important;
+  }
+  .services__card-audiences {
+    display: block !important;
+  }
+  .services__card-group + .services__card-group {
+    margin-top: 3mm !important;
+    padding-left: 0 !important;
+    border: none !important;
+    padding-top: 0 !important;
+  }
+  .services__card-cols {
+    display: block !important;
+  }
+  .services__card-col + .services__card-col {
+    margin-top: 3mm !important;
+    padding-left: 0 !important;
+    border: none !important;
+    padding-top: 0 !important;
+  }
+  .works__heading + .works__text {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  .pricing-table thead {
+    display: table-header-group;
+  }
+  .pricing-table tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .pricing-table-wrap {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .contact-banner {
+    margin: 0 0 6mm !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  .contact-banner__inner {
+    margin: 0 !important;
+    padding: 7mm !important;
+    border: 1px solid #e3e8ef !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .footer {
+    margin-top: 7mm;
+    background: transparent !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .footer__inner {
+    max-width: none !important;
+    border: 1px solid #d8dee7;
+    background: #ffffff !important;
+    color: #445163 !important;
+    padding: 5mm 8mm;
+  }
+  .footer__nav-link,
+  .footer__copyright {
+    color: #445163 !important;
+  }
 }

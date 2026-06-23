@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css?v=20260601c">
-  <link id="site-theme-link" rel="stylesheet" href="css/theme-c.css?v=20260601c">
-  <script src="js/site-mode.js?v=20260601c"></script>
+  <link rel="stylesheet" href="css/base.css?v=20260623a">
+  <link id="site-theme-link" rel="stylesheet" href="css/theme-c.css?v=20260623a">
+  <script src="js/site-mode.js?v=20260623a"></script>
 </head>
 <body>
   <header class="header">
@@ -32,13 +32,53 @@
     <div class="page-single__main">
       <h1 class="page-single__title">サービス</h1>
       <p class="services__intro">法人・個人のお客様に、税務の専門的なサポートをご提供します。主な取扱いは次のとおりです。</p>
-      <ul class="services__list">
-        <li class="services__item">税務相談</li>
-        <li class="services__item">税務申告</li>
-        <li class="services__item">税務会計</li>
-        <li class="services__item">相続対策</li>
-        <li class="services__item">相続税・贈与税申告</li>
-      </ul>
+
+      <section class="services__card" aria-label="主な取扱い">
+        <div class="services__card-audiences">
+          <div class="services__card-group">
+            <h2 class="services__card-title" id="services-corp">法人のお客様</h2>
+            <ol class="services__card-list">
+              <li>帳簿作成・確定申告代行</li>
+              <li>決算等の経理業務サポート</li>
+              <li>資産形成サポート</li>
+              <li>税務調査対応サポート</li>
+            </ol>
+          </div>
+
+          <div class="services__card-group">
+            <h2 class="services__card-title" id="services-startup">創業を検討中のお客様</h2>
+            <ol class="services__card-list">
+              <li>会社設立支援</li>
+              <li>創業融資のご相談</li>
+              <li>補助金制度活用へのアドバイス</li>
+            </ol>
+          </div>
+
+          <div class="services__card-group services__card-group--individual">
+            <h2 class="services__card-title" id="services-individual">個人のお客様</h2>
+            <div class="services__card-cols">
+              <div class="services__card-col">
+                <h3 class="services__card-subtitle">事業関係</h3>
+                <ol class="services__card-list">
+                  <li>帳簿作成・確定申告代行</li>
+                  <li>法人化までのサポート</li>
+                  <li>資産形成サポート</li>
+                </ol>
+              </div>
+              <div class="services__card-col">
+                <h3 class="services__card-subtitle">相続・資産税</h3>
+                <ol class="services__card-list">
+                  <li>相続税申告サポート</li>
+                  <li>生前対策</li>
+                  <li>贈与相談</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p class="section__actions"><a class="btn btn--primary" href="contact.html">お問い合わせへ</a></p>
     </div>
   </main>
 
