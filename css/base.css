@@ -258,6 +258,25 @@ body {
   color: var(--hero-title-on-image, #fff);
   text-shadow: var(--hero-title-shadow, 0 2px 28px rgba(0, 0, 0, 0.45));
 }
+.hero--with-photo .hero__copy {
+  max-width: min(92vw, 980px);
+}
+.hero--with-photo .hero__subtitle {
+  margin: 1.15rem 0 0;
+  font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.75;
+  color: var(--hero-title-on-image, #fff);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+.hero--with-photo .hero__description {
+  margin: 1.35rem auto 0;
+  max-width: min(92vw, 920px);
+  font-size: clamp(0.95rem, 1.7vw, 1.2rem);
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.42);
+}
 
 /* 明るいハイキー写真向け（看板名と背景の分離：オーバーレイを強め＋中央にマット） */
 .hero--with-photo.hero--bright-key .hero__overlay {
@@ -417,13 +436,21 @@ body {
 }
 
 /* サービス一覧（ページ用） */
-.services__intro { margin: 0 0 var(--space-lg); color: var(--color-text-sub); line-height: 1.9; }
+.services__intro { margin: 0 0 var(--space-lg); color: var(--color-text-sub); line-height: 2; }
 .page-single__title:has(+ .services__intro) {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.85rem;
 }
 .page-single__title + .services__intro {
-  margin-top: 0;
+  margin-top: 0.5rem;
   margin-bottom: var(--space-lg);
+}
+.page-single__main > .section__actions {
+  margin-top: calc(var(--space-lg) + 0.5rem);
+}
+.page-single .about__services + .section__actions,
+.page-single .services__card + .section__actions,
+.page-single .pricing-table-wrap + .contact__note + .section__actions {
+  margin-top: calc(var(--space-lg) + 0.75rem);
 }
 .services__list { list-style: none; margin: 0; padding: 0; }
 .services__item {
@@ -670,12 +697,12 @@ body {
   border-radius: 1px;
 }
 .about__services {
-  margin: 0;
+  margin: 0.25rem 0 0;
   padding-left: 1.25rem;
   color: var(--color-text-sub);
-  line-height: 1.9;
+  line-height: 2;
 }
-.about__services li { margin-bottom: 0.35em; }
+.about__services li { margin-bottom: 0.55em; }
 .about__services li:last-child { margin-bottom: 0; }
 
 /* プロフィール（スタッフ） */

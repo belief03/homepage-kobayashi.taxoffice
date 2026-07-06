@@ -145,22 +145,23 @@ body {
   padding: var(--space-lg) 0 0 0 !important;
   background: transparent;
 }
-.page-single__main > * + * {
+.page-single__main > * + *:not(.section__actions) {
   margin-top: 0.5rem;
+}
+.page-single__main > .section__actions {
+  margin-top: calc(var(--space-lg) + 0.5rem);
 }
 @media (max-width: 640px) {
   .page-single__main {
     padding-top: calc(var(--space-lg) - 0.5rem) !important;
   }
 }
-.page-single__title {
-  margin-bottom: calc(var(--space-lg) + 0.35rem);
+.page-single__title:has(+ .services__intro) {
+  margin-bottom: 1rem;
 }
-
-.about__body p,
-.section__lead,
-.services__intro {
-  margin-bottom: 1.15em;
+.page-single__title + .services__intro {
+  margin-top: 0.65rem;
+  margin-bottom: calc(var(--space-lg) + 0.25rem);
 }
 .about__services li {
   margin-bottom: 0.5em;

@@ -8,20 +8,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css?v=20260623a">
-  <link id="site-theme-link" rel="stylesheet" href="css/theme-c.css?v=20260623a">
+  <link id="site-theme-link" rel="stylesheet" href="css/theme-d.css?v=20260623a">
   <script src="js/site-mode.js?v=20260623a"></script>
 </head>
-<body>
+<body class="page-friendly">
   <header class="header">
     <div class="header__inner">
-      <a class="header__logo" href="index.html">小林義和税理士事務所</a>
+      <a class="header__logo" href="index-friendly.html">小林義和税理士事務所</a>
       <nav class="nav" aria-label="メインメニュー">
         <ul class="nav__list">
-          <li><a class="nav__link" href="index.html">ホーム</a></li>
-          <li><a class="nav__link" href="about.html">事業概要</a></li>
-          <li><a class="nav__link" href="services.html">サービス</a></li>
+          <li><a class="nav__link" href="index-friendly.html">ホーム</a></li>
           <li><a class="nav__link" href="profile.html">プロフィール</a></li>
-          <li><a class="nav__link" href="office.html">アクセス</a></li>
+          <li><a class="nav__link" href="services.html">サービス</a></li>
+          <li><a class="nav__link" href="pricing.html">料金</a></li>
           <li><a class="nav__link" href="contact.html" aria-current="page">お問い合わせ</a></li>
         </ul>
       </nav>
@@ -50,13 +49,13 @@
             <input class="contact__input" id="subject" type="text" name="subject" placeholder="例：税務相談について">
           </div>
           <div class="contact__field">
-            <label class="contact__label" for="message">メッセージ <span class="contact__required">必須</span></label>
-            <textarea class="contact__textarea" id="message" name="message" rows="6" required placeholder="お問い合わせ内容をご記入ください"></textarea>
+            <label class="contact__label" for="message">メッセージ（お問い合わせの内容） <span class="contact__required">必須</span></label>
+            <textarea class="contact__textarea" id="message" name="message" rows="6" required placeholder="（例）・確定申告をお願いしたい。&#10;　　 ・相続について相談したい。&#10;　　 ・年間を通して記帳代行や決算など考えている。&#10;　　 ・顧問料など料金を知りたい。"></textarea>
           </div>
           <button class="contact__submit" type="submit">送信する</button>
         </form>
       </div>
-      <p class="contact__note">※ 内容を確認のうえ、ご連絡させていただく場合がございます。</p>
+      <p class="contact__note">※内容を確認のうえ、こちらからご連絡させていただきます。</p>
     </div>
   </main>
 
@@ -64,10 +63,9 @@
     <div class="footer__inner">
     <nav class="footer__nav" aria-label="フッターナビ">
       <ul class="footer__nav-list">
-        <li><a class="footer__nav-link" href="about.html">事業概要</a></li>
-        <li><a class="footer__nav-link" href="services.html">サービス</a></li>
         <li><a class="footer__nav-link" href="profile.html">プロフィール</a></li>
-        <li><a class="footer__nav-link" href="office.html">アクセス</a></li>
+        <li><a class="footer__nav-link" href="services.html">サービス</a></li>
+        <li><a class="footer__nav-link" href="pricing.html">料金</a></li>
         <li><a class="footer__nav-link" href="contact.html">お問い合わせ</a></li>
       </ul>
     </nav>
