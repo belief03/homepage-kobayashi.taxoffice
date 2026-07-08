@@ -643,7 +643,9 @@ html.site-mode-friendly .footer,
   }
   .page-friendly .header__logo {
     text-align: left;
-    font-size: 0.98rem;
+    font-size: clamp(1.02rem, 4.9vw, 1.16rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
     white-space: normal;
   }
   .page-friendly .site-mode {
@@ -663,8 +665,8 @@ html.site-mode-friendly .footer,
     padding: 0;
   }
   .hero-friendly--with-photo .hero-friendly__inner--center {
-    min-height: min(72vh, 520px);
-    padding: 2.4rem var(--space-edge) 1.1rem;
+    min-height: min(60vh, 430px);
+    padding: 1.9rem var(--space-edge) 0.8rem;
   }
   .hero-friendly--with-photo .hero-friendly__copy {
     max-width: 22em;
@@ -675,12 +677,17 @@ html.site-mode-friendly .footer,
     letter-spacing: 0.04em;
   }
   .hero-friendly--with-photo .hero-friendly__subtitle {
-    margin-top: 0.85rem;
-    font-size: clamp(0.98rem, 3.8vw, 1.12rem);
-    line-height: 1.65;
+    margin-top: 0.75rem;
+    font-size: clamp(0.86rem, 3.25vw, 1rem);
+    line-height: 1.45;
+    white-space: nowrap;
   }
   .hero-friendly--with-photo .hero-friendly__lead {
-    display: none;
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.89rem;
+    line-height: 1.7;
+    max-width: 27em;
   }
   .hero-friendly--with-photo .hero-friendly__scroll {
     margin-bottom: 0.65rem;
@@ -701,7 +708,7 @@ html.site-mode-friendly .footer,
   .hero-friendly__copy { text-align: center; }
   .hero-friendly__lead { margin-left: auto; margin-right: auto; }
   .feature-list {
-    gap: 1.35rem;
+    gap: 1.85rem;
   }
   .feature-card__title {
     font-size: 1.05rem;
@@ -727,7 +734,14 @@ html.site-mode-friendly .footer,
 
 @media (max-width: 480px) {
   .page-friendly .header__logo {
-    font-size: 0.9rem;
+    font-size: clamp(0.98rem, 5vw, 1.08rem);
+  }
+  .hero-friendly--with-photo .hero-friendly__subtitle {
+    font-size: 0.82rem;
+  }
+  .hero-friendly--with-photo .hero-friendly__lead {
+    font-size: 0.84rem;
+    line-height: 1.65;
   }
   .hero-friendly__title {
     font-size: clamp(1.42rem, 8vw, 1.78rem);
