@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -7,15 +7,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css?v=20260623a">
-  <link id="site-theme-link" rel="stylesheet" href="css/theme-d.css?v=20260623a">
-  <script src="js/site-mode.js?v=20260623a"></script>
+  <link rel="stylesheet" href="css/base.css?v=20260709m">
+  <link id="site-theme-link" rel="stylesheet" href="css/theme-d.css?v=20260709m">
+  <script src="js/site-mode.js?v=20260709m"></script>
 </head>
 <body class="page-friendly">
   <header class="header">
     <div class="header__inner">
       <a class="header__logo" href="index-friendly.html">小林義和税理士事務所</a>
-      <nav class="nav" aria-label="メインメニュー">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="メニューを開く">
+        <span class="nav-toggle__bars" aria-hidden="true"><span class="nav-toggle__bar"></span></span>
+      </button>
+      <nav class="nav" id="main-nav" aria-label="メインメニュー">
         <ul class="nav__list">
           <li><a class="nav__link" href="index-friendly.html">ホーム</a></li>
           <li><a class="nav__link" href="profile.html">プロフィール</a></li>
